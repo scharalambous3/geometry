@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0.2)
 project(tf_conversions)
 
 find_package(orocos_kdl REQUIRED)
-find_package(catkin REQUIRED geometry_msgs kdl_conversions tf)
+find_package(catkin REQUIRED geometry_msgs kdl_conversions tf_ros)
 find_package(Eigen3 REQUIRED)
 
 catkin_python_setup()
@@ -11,7 +11,7 @@ catkin_package(
   INCLUDE_DIRS include
   LIBRARIES ${PROJECT_NAME}
   DEPENDS EIGEN3 orocos_kdl
-  CATKIN_DEPENDS geometry_msgs kdl_conversions tf
+  CATKIN_DEPENDS geometry_msgs kdl_conversions tf_ros
 )
 
 include_directories(include ${catkin_INCLUDE_DIRS} ${EIGEN3_INCLUDE_DIRS} ${orocos_kdl_INCLUDE_DIRS})

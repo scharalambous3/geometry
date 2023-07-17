@@ -39,7 +39,7 @@
 
 #include <kdl/frames.hpp>
 
-namespace tf {
+namespace tf_ros {
 
 /// Converts a KDL rotation into an Eigen quaternion
 void quaternionKDLToEigen(const KDL::Rotation &k, Eigen::Quaterniond &e);

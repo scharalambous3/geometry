@@ -31,7 +31,7 @@
 #include <tf_conversions/tf_eigen.h>
 #include <gtest/gtest.h>
 
-using namespace tf;
+using namespace tf_ros;
 
 double gen_rand(double min, double max)
 {
@@ -42,7 +42,7 @@ double gen_rand(double min, double max)
 
 TEST(TFEigenConversions, tf_eigen_vector)
 {
-  tf::Vector3 t;
+  tf_ros::Vector3 t;
   t[0] = gen_rand(-10,10);
   t[1] = gen_rand(-10,10);
   t[2] = gen_rand(-10,10);
@@ -57,7 +57,7 @@ TEST(TFEigenConversions, tf_eigen_vector)
 
 TEST(TFEigenConversions, tf_eigen_quaternion)
 {
-  tf::Quaternion t;
+  tf_ros::Quaternion t;
   t[0] = gen_rand(-1.0,1.0);
   t[1] = gen_rand(-1.0,1.0);
   t[2] = gen_rand(-1.0,1.0);
@@ -75,14 +75,14 @@ TEST(TFEigenConversions, tf_eigen_quaternion)
 
 TEST(TFEigenConversions, tf_eigen_transform)
 {
-  tf::Transform t;
-  tf::Quaternion tq;
+  tf_ros::Transform t;
+  tf_ros::Quaternion tq;
   tq[0] = gen_rand(-1.0,1.0);
   tq[1] = gen_rand(-1.0,1.0);
   tq[2] = gen_rand(-1.0,1.0);
   tq[3] = gen_rand(-1.0,1.0);
   tq.normalize();
-  t.setOrigin(tf::Vector3(gen_rand(-10,10),gen_rand(-10,10),gen_rand(-10,10)));
+  t.setOrigin(tf_ros::Vector3(gen_rand(-10,10),gen_rand(-10,10),gen_rand(-10,10)));
   t.setRotation(tq);
 
   Eigen::Affine3d affine;
@@ -111,8 +111,8 @@ TEST(TFEigenConversions, tf_eigen_transform)
 
 TEST(TFEigenConversions, eigen_tf_transform)
 {
-  tf::Transform t1;
-  tf::Transform t2;
+  tf_ros::Transform t1;
+  tf_ros::Transform t2;
   Eigen::Affine3d affine;
   Eigen::Isometry3d isometry;
   Eigen::Quaterniond kq;

@@ -6,7 +6,7 @@ from catkin_pkg.python_setup import generate_distutils_setup
 d = generate_distutils_setup(
     packages=['tf_conversions'],
     package_dir={'': 'src'},
-    requires=['geometry_msgs', 'rospy', 'tf']
+    requires=['geometry_msgs', 'rospy', 'tf_ros']
 )
 
 setup(**d)

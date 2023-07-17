@@ -43,7 +43,7 @@
 
 #include <ros/macros.h>
 
-namespace tf {
+namespace tf_ros {
 /// Conversion functions from/to the corresponding KDL and geometry_msgs types.
 
 /// Converts a geometry_msgs Point into a KDL Vector

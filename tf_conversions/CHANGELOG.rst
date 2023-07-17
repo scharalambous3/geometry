@@ -222,7 +222,7 @@ Changelog for package tf_conversions
 
 1.9.2 (2012-08-01 21:05)
 ------------------------
-* make sure the tf target depends on the messages (and clean some include_directories too)
+* make sure the tf_ros target depends on the messages (and clean some include_directories too)
 
 1.9.1 (2012-08-01 19:16)
 ------------------------
@@ -231,7 +231,7 @@ Changelog for package tf_conversions
 1.9.0 (2012-08-01 18:52)
 ------------------------
 * catkin build system
-* successfully running rosrun tf bullet_migration_sed.py and testing afterwords
+* successfully running rosrun tf_ros bullet_migration_sed.py and testing afterwords
 * eigen to rosdep from dependency
 * removing eigen dependency as it's now system installed
 * add missing empty_listener.cpp file
@@ -242,7 +242,7 @@ Changelog for package tf_conversions
 * add pykdl to example
 * link to kdl pages
 * Added VectorEigenToTF and RotationEigenToTF to tf_conversions
-* returning to camelCase for consistency with tf and pykdl
+* returning to camelCase for consistency with tf_ros and pykdl
 * converting from camelCase to under_scored methods for python style
 * Added Ubuntu platform tags
 * removing pykdl finishing series of commits for `#4039 <https://github.com/ros/geometry/issues/4039>`_
@@ -255,11 +255,11 @@ Changelog for package tf_conversions
 * Improved pose comparison in test_roundtrip
 * `#4039 <https://github.com/ros/geometry/issues/4039>`_ original posemath now in tf_conversions
 * Enable posemath unit test, `#4039 <https://github.com/ros/geometry/issues/4039>`_
-* Moved PoseMath from tf to tf_conversions, `#4039 <https://github.com/ros/geometry/issues/4039>`_
+* Moved PoseMath from tf_ros to tf_conversions, `#4039 <https://github.com/ros/geometry/issues/4039>`_
 * PyKDL based PoseMath, `#4039 <https://github.com/ros/geometry/issues/4039>`_
 * fixes for `#3915 <https://github.com/ros/geometry/issues/3915>`_ into trunk
 * Remove use of deprecated rosbuild macros
-* tf conversions is doc reviewed
+* tf_ros conversions is doc reviewed
 * api cleared
 * add list of supported data types
 * deprecate addDelta function because it is not a conversion

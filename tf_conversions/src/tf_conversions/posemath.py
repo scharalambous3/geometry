@@ -26,27 +26,27 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 from geometry_msgs.msg import Pose, Point, Quaternion
-from tf import transformations
-import tf
+from tf_ros import transformations
+import tf_ros
 import rospy
 import numpy
 
 from PyKDL import *
 
-def fromTf(tf):
+def fromTf(tf_ros):
     """
-    :param tf: :class:`tf.Transformer` transform
-    :type tf: tuple (translation, quaternion)
+    :param tf_ros: :class:`tf_ros.Transformer` transform
+    :type tf_ros: tuple (translation, quaternion)
     :return: New :class:`PyKDL.Frame` object
 
-    Convert a pose returned by :meth:`tf.Transformer.lookupTransform` to a :class:`PyKDL.Frame`.
+    Convert a pose returned by :meth:`tf_ros.Transformer.lookupTransform` to a :class:`PyKDL.Frame`.
 
     .. doctest::
 
         >>> import rospy
-        >>> import tf
+        >>> import tf_ros
         >>> import geometry_msgs.msg
-        >>> t = tf.Transformer(True, rospy.Duration(10.0))
+        >>> t = tf_ros.Transformer(True, rospy.Duration(10.0))
         >>> m = geometry_msgs.msg.TransformStamped()
         >>> m.header.frame_id = 'THISFRAME'
         >>> m.child_frame_id = 'CHILD'
@@ -70,7 +70,7 @@ def fromTf(tf):
 
     """
 
-    position, quaternion = tf
+    position, quaternion = tf_ros
     x, y, z = position
     Qx, Qy, Qz, Qw = quaternion
     return Frame(Rotation.Quaternion(Qx, Qy, Qz, Qw), 

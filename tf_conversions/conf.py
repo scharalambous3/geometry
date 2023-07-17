@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# tf documentation build configuration file, created by
+# tf_ros documentation build configuration file, created by
 # sphinx-quickstart on Mon Jun  1 14:21:53 2009.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -198,7 +198,7 @@ latex_documents = [
 intersphinx_mapping = {
     'http://docs.python.org/': None,
     'http://docs.opencv.org/3.0-last-rst/': None,
-    'http://www.ros.org/doc/api/tf/html/python/' : None,
+    'http://www.ros.org/doc/api/tf_ros/html/python/' : None,
     'http://docs.scipy.org/doc/numpy' : None,
     'http://www.ros.org/doc/api/kdl/html/python/' : None
     }

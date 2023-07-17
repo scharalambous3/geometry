@@ -4,7 +4,7 @@ import numpy
 import unittest
 import sys
 
-from tf import Transformer
+from tf_ros import Transformer
 import tf_conversions.posemath as pm
 
 from geometry_msgs.msg import TransformStamped
@@ -39,7 +39,7 @@ class TestPoseMath(unittest.TestCase):
 
 if __name__ == '__main__':
     if len(sys.argv) == 1 or sys.argv[1].startswith('--gtest_output'):
-        rostest.unitrun('tf', 'directed', TestPoseMath)
+        rostest.unitrun('tf_ros', 'directed', TestPoseMath)
     else:
         suite = unittest.TestSuite()
         suite.addTest(TestPoseMath(sys.argv[1]))

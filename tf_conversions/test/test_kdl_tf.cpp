@@ -31,7 +31,7 @@
 #include <tf_conversions/tf_kdl.h>
 #include <gtest/gtest.h>
 
-using namespace tf;
+using namespace tf_ros;
 
 double gen_rand(double min, double max)
 {
@@ -42,7 +42,7 @@ double gen_rand(double min, double max)
 
 TEST(TFKDLConversions, tf_kdl_vector)
 {
-  tf::Vector3 t;
+  tf_ros::Vector3 t;
   t[0] = gen_rand(-10,10);
   t[1] = gen_rand(-10,10);
   t[2] = gen_rand(-10,10);
@@ -57,7 +57,7 @@ TEST(TFKDLConversions, tf_kdl_vector)
 
 TEST(TFKDLConversions, tf_kdl_rotation)
 {
-  tf::Quaternion t;
+  tf_ros::Quaternion t;
   t[0] = gen_rand(-1.0,1.0);
   t[1] = gen_rand(-1.0,1.0);
   t[2] = gen_rand(-1.0,1.0);
@@ -81,17 +81,17 @@ TEST(TFKDLConversions, tf_kdl_rotation)
 
 TEST(TFKDLConversions, tf_kdl_transform)
 {
-  tf::Transform t;
-  tf::Quaternion tq;
+  tf_ros::Transform t;
+  tf_ros::Quaternion tq;
   tq[0] = gen_rand(-1.0,1.0);
   tq[1] = gen_rand(-1.0,1.0);
   tq[2] = gen_rand(-1.0,1.0);
   tq[3] = gen_rand(-1.0,1.0);
   tq.normalize();
-  t.setOrigin(tf::Vector3(gen_rand(-10,10),gen_rand(-10,10),gen_rand(-10,10)));
+  t.setOrigin(tf_ros::Vector3(gen_rand(-10,10),gen_rand(-10,10),gen_rand(-10,10)));
   t.setRotation(tq);
 
-  //test tf->kdl
+  //test tf_ros->kdl
   KDL::Frame k;
   TransformTFToKDL(t,k);
 
@@ -103,8 +103,8 @@ TEST(TFKDLConversions, tf_kdl_transform)
       ASSERT_NEAR(t.getBasis()[i][j],k.M(i,j),1e-6);
     }
   }
-  //test kdl->tf
-  tf::Transform r;
+  //test kdl->tf_ros
+  tf_ros::Transform r;
   TransformKDLToTF(k,r);
 
   for(int i=0; i< 3; i++)
@@ -120,17 +120,17 @@ TEST(TFKDLConversions, tf_kdl_transform)
 
 TEST(TFKDLConversions, tf_kdl_pose)
 {
-  tf::Pose t;
-  tf::Quaternion tq;
+  tf_ros::Pose t;
+  tf_ros::Quaternion tq;
   tq[0] = gen_rand(-1.0,1.0);
   tq[1] = gen_rand(-1.0,1.0);
   tq[2] = gen_rand(-1.0,1.0);
   tq[3] = gen_rand(-1.0,1.0);
   tq.normalize();
-  t.setOrigin(tf::Vector3(gen_rand(-10,10),gen_rand(-10,10),gen_rand(-10,10)));
+  t.setOrigin(tf_ros::Vector3(gen_rand(-10,10),gen_rand(-10,10),gen_rand(-10,10)));
   t.setRotation(tq);
 
-  //test tf->kdl                                                                                                              
+  //test tf_ros->kdl                                                                                                              
   KDL::Frame k;
   PoseTFToKDL(t,k);
 
@@ -143,8 +143,8 @@ TEST(TFKDLConversions, tf_kdl_pose)
     }
   }
 
-  //test kdl->tf                                                                                                              
-  tf::Pose r;
+  //test kdl->tf_ros                                                                                                              
+  tf_ros::Pose r;
   PoseKDLToTF(k,r);
 
   for(int i=0; i< 3; i++)

@@ -30,7 +30,7 @@
 
 #include <eigen_conversions/eigen_msg.h>
 
-namespace tf {
+namespace tf_ros {
 
 void pointMsgToEigen(const geometry_msgs::Point &m, Eigen::Vector3d &e)
 {

@@ -8,7 +8,7 @@ PoseMath
 --------
 
 PoseMath is a utility that makes it easy to work with :class:`PyKDL.Frame`'s. 
-It can work with poses from a variety of sources: :meth:`tf.Transformer.lookupTransform`, 
+It can work with poses from a variety of sources: :meth:`tf_ros.Transformer.lookupTransform`, 
 :mod:`opencv` and ROS messages.  It has utility functions to convert between these
 types and the :class:`PyKDL.Frame` pose representation.
 

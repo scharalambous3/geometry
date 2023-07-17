@@ -46,7 +46,7 @@
 #include <Eigen/Core>
 #include <Eigen/Geometry>
 
-namespace tf {
+namespace tf_ros {
 
 /// Converts a Point message into an Eigen Vector
 void pointMsgToEigen(const geometry_msgs::Point &m, Eigen::Vector3d &e);

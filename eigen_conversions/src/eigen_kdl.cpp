@@ -29,7 +29,7 @@
 
 #include <eigen_conversions/eigen_kdl.h>
 
-namespace tf {
+namespace tf_ros {
 
 void quaternionKDLToEigen(const KDL::Rotation &k, Eigen::Quaterniond &e)
 {

@@ -29,7 +29,7 @@
 
 #include "kdl_conversions/kdl_msg.h"
 
-namespace tf {
+namespace tf_ros {
 
   void pointMsgToKDL(const geometry_msgs::Point &m, KDL::Vector &k)
   {
@@ -161,5 +161,5 @@ void TwistMsgToKDL(const geometry_msgs::Twist &m, KDL::Twist &k) {twistMsgToKDL(
 void TwistKDLToMsg(const KDL::Twist &k, geometry_msgs::Twist &m){twistKDLToMsg(k, m);};
 
 
-}  // namespace tf
+}  // namespace tf_ros
 

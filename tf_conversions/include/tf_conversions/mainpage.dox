@@ -2,8 +2,8 @@
 
 @htmlinclude manifest.html
 
-The tf conversions package provide methods to convert between
-datatypes used by tf, and semantically identical data types of
+The tf_ros conversions package provide methods to convert between
+datatypes used by tf_ros, and semantically identical data types of
 other libraries. The package now supports KDL and Eigen.
 
 The supported KDL data types are:
@@ -18,6 +18,6 @@ The supported Eigen data types are:
  \li Quaterniond
 
 For a complete list of available conversion methods, follow this link:
-tf
+tf_ros
 
 */

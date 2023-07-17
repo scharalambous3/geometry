@@ -31,48 +31,48 @@
 
 #include "tf_conversions/tf_eigen.h"
 
-namespace tf {
+namespace tf_ros {
 
-  void matrixTFToEigen(const tf::Matrix3x3 &t, Eigen::Matrix3d &e)
+  void matrixTFToEigen(const tf_ros::Matrix3x3 &t, Eigen::Matrix3d &e)
   {
     for(int i=0; i<3; i++)
       for(int j=0; j<3; j++)
         e(i,j) = t[i][j];
   }
   
-  void matrixEigenToTF(const Eigen::Matrix3d &e, tf::Matrix3x3 &t)
+  void matrixEigenToTF(const Eigen::Matrix3d &e, tf_ros::Matrix3x3 &t)
   {
     for(int i=0; i<3; i++)
       for(int j=0; j<3; j++)
         t[i][j] =  e(i,j);
   }
 
-  void poseTFToEigen(const tf::Pose &t, Eigen::Affine3d &e)
+  void poseTFToEigen(const tf_ros::Pose &t, Eigen::Affine3d &e)
   {
     transformTFToEigen(t, e);
   }
 
-  void poseTFToEigen(const tf::Pose &t, Eigen::Isometry3d &e)
+  void poseTFToEigen(const tf_ros::Pose &t, Eigen::Isometry3d &e)
   {
     transformTFToEigen(t, e);
   }
 
-  void poseEigenToTF(const Eigen::Affine3d &e, tf::Pose &t)
+  void poseEigenToTF(const Eigen::Affine3d &e, tf_ros::Pose &t)
   {
     transformEigenToTF(e, t);
   }
 
-  void poseEigenToTF(const Eigen::Isometry3d &e, tf::Pose &t)
+  void poseEigenToTF(const Eigen::Isometry3d &e, tf_ros::Pose &t)
   {
     transformEigenToTF(e, t);
   }
 
-  void quaternionTFToEigen(const tf::Quaternion& t, Eigen::Quaterniond& e)
+  void quaternionTFToEigen(const tf_ros::Quaternion& t, Eigen::Quaterniond& e)
   {
     e = Eigen::Quaterniond(t[3],t[0],t[1],t[2]);
   }
   
-  void quaternionEigenToTF(const Eigen::Quaterniond& e, tf::Quaternion& t)
+  void quaternionEigenToTF(const Eigen::Quaterniond& e, tf_ros::Quaternion& t)
   {
     t[0] = e.x();
     t[1] = e.y();
@@ -82,7 +82,7 @@ namespace tf {
 
   namespace {
     template<typename Transform>
-    void transformTFToEigenImpl(const tf::Transform &t, Transform & e)
+    void transformTFToEigenImpl(const tf_ros::Transform &t, Transform & e)
     {
       for(int i=0; i<3; i++)
       {
@@ -99,47 +99,47 @@ namespace tf {
     }
 
     template<typename T>
-    void transformEigenToTFImpl(const T &e, tf::Transform &t)
+    void transformEigenToTFImpl(const T &e, tf_ros::Transform &t)
     {
-      t.setOrigin(tf::Vector3( e.matrix()(0,3), e.matrix()(1,3), e.matrix()(2,3)));
-      t.setBasis(tf::Matrix3x3(e.matrix()(0,0), e.matrix()(0,1), e.matrix()(0,2),
+      t.setOrigin(tf_ros::Vector3( e.matrix()(0,3), e.matrix()(1,3), e.matrix()(2,3)));
+      t.setBasis(tf_ros::Matrix3x3(e.matrix()(0,0), e.matrix()(0,1), e.matrix()(0,2),
                                e.matrix()(1,0), e.matrix()(1,1), e.matrix()(1,2),
                                e.matrix()(2,0), e.matrix()(2,1), e.matrix()(2,2)));
     }
   }
 
-  void transformTFToEigen(const tf::Transform &t, Eigen::Affine3d &e)
+  void transformTFToEigen(const tf_ros::Transform &t, Eigen::Affine3d &e)
   {
     transformTFToEigenImpl(t, e);
   };
 
-  void transformTFToEigen(const tf::Transform &t, Eigen::Isometry3d &e)
+  void transformTFToEigen(const tf_ros::Transform &t, Eigen::Isometry3d &e)
   {
     transformTFToEigenImpl(t, e);
   };
 
-  void transformEigenToTF(const Eigen::Affine3d &e, tf::Transform &t)
+  void transformEigenToTF(const Eigen::Affine3d &e, tf_ros::Transform &t)
   {
     transformEigenToTFImpl(e, t);
   }
 
-  void transformEigenToTF(const Eigen::Isometry3d &e, tf::Transform &t)
+  void transformEigenToTF(const Eigen::Isometry3d &e, tf_ros::Transform &t)
   {
     transformEigenToTFImpl(e, t);
   }
 
-  void vectorTFToEigen(const tf::Vector3& t, Eigen::Vector3d& e)
+  void vectorTFToEigen(const tf_ros::Vector3& t, Eigen::Vector3d& e)
   {
     e(0) = t[0];
     e(1) = t[1];
     e(2) = t[2];
   }
 
-  void vectorEigenToTF(const Eigen::Vector3d& e, tf::Vector3& t)
+  void vectorEigenToTF(const Eigen::Vector3d& e, tf_ros::Vector3& t)
   {
     t[0] = e(0);
     t[1] = e(1);
     t[2] = e(2);
   }
 
-} // namespace tf
+} // namespace tf_ros
